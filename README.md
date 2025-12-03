@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Simple EC Site Demo
 
-## Getting Started
+**Next.js 16 (App Router)** と **TypeScript** を使用して構築された、簡易的なECサイト（E-commerce）のデモアプリケーションです。
 
-First, run the development server:
+モダンなフロントエンド技術スタックを用いて、商品一覧や詳細表示などの基本的なEC機能を実装しています。データはローカルのモックデータを使用しているため、バックエンドのセットアップなしで即座に動作確認が可能です。
+
+## 🛠️ 技術スタック
+
+主な使用技術は以下の通りです：
+
+- **フレームワーク**: [Next.js](https://nextjs.org/) (App Router採用)
+- **言語**: [TypeScript](https://www.typescriptlang.org/)
+- **スタイリング**: [Tailwind CSS](https://tailwindcss.com/)
+- **パッケージ管理**: [pnpm](https://pnpm.io/)
+- **Linting**: ESLint
+
+## ✨ 主な機能
+
+* **商品一覧表示**: グリッドレイアウトによる商品カタログの表示。
+* **商品詳細ページ**: 動的ルーティングを用いた個別商品ページ。
+* **レスポンシブデザイン**: PC、タブレット、スマートフォンなどの各デバイスに対応。
+* **モックデータ駆動**: `data/` ディレクトリ内のJSON/TSデータを使用し、外部APIに依存せず動作。
+* **高速なページロード**: Next.jsのServer Componentsを活用した最適化。
+
+## 📂 ディレクトリ構成
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+simple-ecsite-demo/
+├── app/            # Next.js App Router ページおよびルーティング
+├── components/     # 再利用可能なUIコンポーネント
+├── data/           # デモ用の商品データ (Mock Data)
+├── public/         # 静的アセット (画像、アイコン等)
+├── types/          # TypeScript 型定義ファイル
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 環境構築・実行方法
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 事前準備
+ローカル環境に Node.js (v18以上推奨) がインストールされていることを確認してください。 本プロジェクトではパッケージマネージャーとして pnpm を推奨しています。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# pnpm未インストールの場合
+npm install -g pnpm
 
-## Learn More
+# ローカル開発サーバーの起動
+pnpm dev
 
-To learn more about Next.js, take a look at the following resources:
+# 本番ビルド
+pnpm build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# 本番サーバー起動
+pnpm start
+```
