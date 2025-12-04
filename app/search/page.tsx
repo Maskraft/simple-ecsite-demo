@@ -7,12 +7,13 @@ import {
 } from "@/data/products";
 
 interface SearchPageProps {
-  searchParams: { q?: string; category?: string };
+  searchParams: Promise<{ q?: string; category?: string }>;
 }
 
-export default function SearchPage({ searchParams }: SearchPageProps) {
-  const keyword = searchParams.q ?? "";
-  const selectedCategory = searchParams.category ?? "";
+export default async function SearchPage({ searchParams }: SearchPageProps) {
+  const params = await searchParams;
+  const keyword = params.q ?? "";
+  const selectedCategory = params.category ?? "";
 
   const resultByKeyword = keyword ? searchProducts(keyword) : [];
   const resultByCategory = selectedCategory
